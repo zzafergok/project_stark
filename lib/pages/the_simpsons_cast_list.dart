@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:convert';
-import 'package:http/http.dart' as http;
 import 'package:project_stark/model/the_simpsons_cast.dart';
 import 'package:project_stark/services/the_simpsons_services.dart';
 
@@ -16,7 +14,6 @@ class _TheSimpsonsCastListState extends State<TheSimpsonsCastList> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _loading = true;
     Services.getTheSimpsonsCast().then((theSimpsonsCast) {
@@ -35,12 +32,10 @@ class _TheSimpsonsCastListState extends State<TheSimpsonsCastList> {
       ),
       body: Container(
         child: ListView.builder(
-          itemCount:
-          null == _theSimpsonsCast ? 0 : _theSimpsonsCast.length,
+          itemCount: null == _theSimpsonsCast ? 0 : _theSimpsonsCast.length,
           itemExtent: 300,
           itemBuilder: (context, index) {
-            TheSimpsonsCast theSimpsonsCast =
-            _theSimpsonsCast[index];
+            TheSimpsonsCast theSimpsonsCast = _theSimpsonsCast[index];
             return Container(
               color: Colors.blueGrey,
               child: Card(
@@ -61,8 +56,7 @@ class _TheSimpsonsCastListState extends State<TheSimpsonsCastList> {
                               height: 20,
                               width: 150,
                               child: Center(
-                                  child: Text(
-                                      theSimpsonsCast.character.name)),
+                                  child: Text(theSimpsonsCast.character.name)),
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(16),
                                   color: Colors.orangeAccent),
@@ -71,8 +65,7 @@ class _TheSimpsonsCastListState extends State<TheSimpsonsCastList> {
                               height: 20,
                               width: 150,
                               child: Center(
-                                  child:
-                                  Text(theSimpsonsCast.person.name)),
+                                  child: Text(theSimpsonsCast.person.name)),
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(16),
                                   color: Colors.tealAccent),
@@ -94,8 +87,8 @@ class _TheSimpsonsCastListState extends State<TheSimpsonsCastList> {
                               width: 150,
                               child: Center(
                                   child: Text(
-                                    theSimpsonsCast.person.birthday.toString(),
-                                  )),
+                                theSimpsonsCast.person.birthday.toString(),
+                              )),
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(16),
                                   color: Colors.tealAccent),

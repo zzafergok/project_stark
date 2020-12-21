@@ -13,7 +13,6 @@ class _FamilyGuyCastListState extends State<FamilyGuyCastList> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _loading = true;
     Services.getFamilyGuyCast().then((familyGuyCast) {

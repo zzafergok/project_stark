@@ -14,7 +14,6 @@ class _GameOfThronesCastListState extends State<GameOfThronesCastList> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _loading = true;
     Services.getGameOfThronesCast().then((gameOfThronesCast) {
@@ -33,12 +32,10 @@ class _GameOfThronesCastListState extends State<GameOfThronesCastList> {
       ),
       body: Container(
         child: ListView.builder(
-          itemCount:
-          null == _gameOfThronesCast ? 0 : _gameOfThronesCast.length,
+          itemCount: null == _gameOfThronesCast ? 0 : _gameOfThronesCast.length,
           itemExtent: 300,
           itemBuilder: (context, index) {
-            GameOfThronesCast gameOfThronesCast =
-            _gameOfThronesCast[index];
+            GameOfThronesCast gameOfThronesCast = _gameOfThronesCast[index];
             return Container(
               color: Colors.blueGrey,
               child: Card(
@@ -59,8 +56,8 @@ class _GameOfThronesCastListState extends State<GameOfThronesCastList> {
                               height: 20,
                               width: 150,
                               child: Center(
-                                  child: Text(
-                                      gameOfThronesCast.character.name)),
+                                  child:
+                                      Text(gameOfThronesCast.character.name)),
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(16),
                                   color: Colors.orangeAccent),
@@ -69,8 +66,7 @@ class _GameOfThronesCastListState extends State<GameOfThronesCastList> {
                               height: 20,
                               width: 150,
                               child: Center(
-                                  child:
-                                  Text(gameOfThronesCast.person.name)),
+                                  child: Text(gameOfThronesCast.person.name)),
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(16),
                                   color: Colors.tealAccent),
@@ -92,8 +88,8 @@ class _GameOfThronesCastListState extends State<GameOfThronesCastList> {
                               width: 150,
                               child: Center(
                                   child: Text(
-                                    gameOfThronesCast.person.birthday.toString(),
-                                  )),
+                                gameOfThronesCast.person.birthday.toString(),
+                              )),
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(16),
                                   color: Colors.tealAccent),

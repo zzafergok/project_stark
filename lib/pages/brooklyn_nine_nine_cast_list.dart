@@ -17,7 +17,6 @@ class _BrooklynNineNineCastListState extends State<BrooklynNineNineCastList> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _loading = true;
     Services.getBrooklynNineNineCast().then((brooklynnineNineCast) {

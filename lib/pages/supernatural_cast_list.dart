@@ -14,7 +14,6 @@ class _SupernaturalCastListState extends State<SupernaturalCastList> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _loading = true;
     Services.getSupernaturalCast().then((supernaturalCast) {
@@ -33,12 +32,10 @@ class _SupernaturalCastListState extends State<SupernaturalCastList> {
       ),
       body: Container(
         child: ListView.builder(
-          itemCount:
-          null == _supernaturalCast ? 0 : _supernaturalCast.length,
+          itemCount: null == _supernaturalCast ? 0 : _supernaturalCast.length,
           itemExtent: 300,
           itemBuilder: (context, index) {
-            SupernaturalCast supernaturalCast =
-            _supernaturalCast[index];
+            SupernaturalCast supernaturalCast = _supernaturalCast[index];
             return Container(
               color: Colors.blueGrey,
               child: Card(
@@ -59,8 +56,7 @@ class _SupernaturalCastListState extends State<SupernaturalCastList> {
                               height: 20,
                               width: 150,
                               child: Center(
-                                  child: Text(
-                                      supernaturalCast.character.name)),
+                                  child: Text(supernaturalCast.character.name)),
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(16),
                                   color: Colors.orangeAccent),
@@ -69,8 +65,7 @@ class _SupernaturalCastListState extends State<SupernaturalCastList> {
                               height: 20,
                               width: 150,
                               child: Center(
-                                  child:
-                                  Text(supernaturalCast.person.name)),
+                                  child: Text(supernaturalCast.person.name)),
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(16),
                                   color: Colors.tealAccent),
@@ -92,8 +87,8 @@ class _SupernaturalCastListState extends State<SupernaturalCastList> {
                               width: 150,
                               child: Center(
                                   child: Text(
-                                    supernaturalCast.person.birthday.toString(),
-                                  )),
+                                supernaturalCast.person.birthday.toString(),
+                              )),
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(16),
                                   color: Colors.tealAccent),

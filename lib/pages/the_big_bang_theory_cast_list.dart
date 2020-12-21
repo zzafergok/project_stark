@@ -4,7 +4,8 @@ import 'package:project_stark/services/the_big_bang_theory_services.dart';
 
 class TheBigBangTheoryCastList extends StatefulWidget {
   @override
-  _TheBigBangTheoryCastListState createState() => _TheBigBangTheoryCastListState();
+  _TheBigBangTheoryCastListState createState() =>
+      _TheBigBangTheoryCastListState();
 }
 
 class _TheBigBangTheoryCastListState extends State<TheBigBangTheoryCastList> {
@@ -14,7 +15,6 @@ class _TheBigBangTheoryCastListState extends State<TheBigBangTheoryCastList> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _loading = true;
     Services.getTheBigBangTheoryCast().then((theBigBangTheoryCast) {
@@ -34,11 +34,11 @@ class _TheBigBangTheoryCastListState extends State<TheBigBangTheoryCastList> {
       body: Container(
         child: ListView.builder(
           itemCount:
-          null == _theBigBangTheoryCast ? 0 : _theBigBangTheoryCast.length,
+              null == _theBigBangTheoryCast ? 0 : _theBigBangTheoryCast.length,
           itemExtent: 300,
           itemBuilder: (context, index) {
             TheBigBangTheoryCast theBigBangTheoryCast =
-            _theBigBangTheoryCast[index];
+                _theBigBangTheoryCast[index];
             return Container(
               color: Colors.blueGrey,
               child: Card(
@@ -70,7 +70,7 @@ class _TheBigBangTheoryCastListState extends State<TheBigBangTheoryCastList> {
                               width: 150,
                               child: Center(
                                   child:
-                                  Text(theBigBangTheoryCast.person.name)),
+                                      Text(theBigBangTheoryCast.person.name)),
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(16),
                                   color: Colors.tealAccent),
@@ -92,8 +92,8 @@ class _TheBigBangTheoryCastListState extends State<TheBigBangTheoryCastList> {
                               width: 150,
                               child: Center(
                                   child: Text(
-                                    theBigBangTheoryCast.person.birthday.toString(),
-                                  )),
+                                theBigBangTheoryCast.person.birthday.toString(),
+                              )),
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(16),
                                   color: Colors.tealAccent),

@@ -14,7 +14,6 @@ class _ModernFamilyCastListState extends State<ModernFamilyCastList> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _loading = true;
     Services.getModernFamilyCast().then((modernFamilyCast) {
@@ -33,12 +32,10 @@ class _ModernFamilyCastListState extends State<ModernFamilyCastList> {
       ),
       body: Container(
         child: ListView.builder(
-          itemCount:
-          null == _modernFamilyCast ? 0 : _modernFamilyCast.length,
+          itemCount: null == _modernFamilyCast ? 0 : _modernFamilyCast.length,
           itemExtent: 300,
           itemBuilder: (context, index) {
-            ModernFamilyCast modernFamilyCast =
-            _modernFamilyCast[index];
+            ModernFamilyCast modernFamilyCast = _modernFamilyCast[index];
             return Container(
               color: Colors.blueGrey,
               child: Card(
@@ -59,8 +56,7 @@ class _ModernFamilyCastListState extends State<ModernFamilyCastList> {
                               height: 20,
                               width: 150,
                               child: Center(
-                                  child: Text(
-                                      modernFamilyCast.character.name)),
+                                  child: Text(modernFamilyCast.character.name)),
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(16),
                                   color: Colors.orangeAccent),
@@ -69,8 +65,7 @@ class _ModernFamilyCastListState extends State<ModernFamilyCastList> {
                               height: 20,
                               width: 150,
                               child: Center(
-                                  child:
-                                  Text(modernFamilyCast.person.name)),
+                                  child: Text(modernFamilyCast.person.name)),
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(16),
                                   color: Colors.tealAccent),
@@ -92,8 +87,8 @@ class _ModernFamilyCastListState extends State<ModernFamilyCastList> {
                               width: 150,
                               child: Center(
                                   child: Text(
-                                    modernFamilyCast.person.birthday.toString(),
-                                  )),
+                                modernFamilyCast.person.birthday.toString(),
+                              )),
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(16),
                                   color: Colors.tealAccent),
@@ -126,4 +121,3 @@ class _ModernFamilyCastListState extends State<ModernFamilyCastList> {
     );
   }
 }
-
