@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:project_stark/pages/brooklyn_nine_nine_cast_list.dart';
 import 'package:project_stark/pages/family_guy_cast_list.dart';
-import 'package:project_stark/pages/final_space_list.dart';
 import 'package:project_stark/pages/game_of_thrones_cast_list.dart';
 import 'package:project_stark/pages/modern_family_cast_list.dart';
-import 'package:project_stark/pages/rick_and_morty_list.dart';
 import 'package:project_stark/pages/supernatural_cast_list.dart';
 import 'package:project_stark/pages/the_big_bang_theory_cast_list.dart';
 import 'package:project_stark/pages/the_simpsons_cast_list.dart';
@@ -79,85 +77,6 @@ class MainPage extends StatelessWidget {
                   margin: EdgeInsets.all(16),
                 ),
                 Card(
-                  child: InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => FinalSpaceCastList()));
-                    },
-                    child: Container(
-                        height: 275,
-                        width: 316,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Expanded(
-                              child: Container(
-                                margin: EdgeInsets.only(top: 45),
-                                decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                  image: NetworkImage(
-                                      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPwnWCx7yYJFgU8BIfXzpkgV3NwwIWuwGC9w&usqp=CAU", scale: 0.9),
-                                )),
-                              ),
-                            ),
-                            Chip(
-                              label: Text(
-                                "Final Space",
-                                style: TextStyle(color: Colors.white),
-                              ),
-                              backgroundColor: Colors.black45,
-                            )
-                          ],
-                        )),
-                  ),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(24)),
-                  elevation: 6,
-                  margin: EdgeInsets.all(16),
-                ),
-                Card(
-                  //color: Colors.lightBlue,
-                  child: InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => RickAndMortyCastList()));
-                    },
-                    child: Container(
-                        height: 225,
-                        width: 316,
-                        margin: EdgeInsets.only(top: 45),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Expanded(
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                  image: NetworkImage(
-                                      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZB6ELN-_hxUSoDL6ke9xgcJpb5PmNw65_Rg&usqp=CAU"), scale: 0.95,
-                                )),
-                              ),
-                            ),
-                            Chip(
-                              label: Text(
-                                "Rick and Morty",
-                                style: TextStyle(color: Colors.white),
-                              ),
-                              backgroundColor: Colors.purpleAccent,
-                            )
-                          ],
-                        )),
-                  ),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(24)),
-                  elevation: 6,
-                  margin: EdgeInsets.all(16),
-                ),
-                Card(
                   //color: Colors.lightBlue,
                   child: InkWell(
                     onTap: () {
@@ -217,7 +136,8 @@ class MainPage extends StatelessWidget {
                                 decoration: BoxDecoration(
                                     image: DecorationImage(
                                   image: NetworkImage(
-                                      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLfuLJQ7DIZAOHyF_WYVtj3ke-sx7TQwHQHw&usqp=CAU",scale: 0.9),
+                                      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLfuLJQ7DIZAOHyF_WYVtj3ke-sx7TQwHQHw&usqp=CAU",
+                                      scale: 0.9),
                                 )),
                               ),
                             ),
@@ -361,7 +281,8 @@ class MainPage extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => TheBigBangTheoryCastList()));
+                              builder: (context) =>
+                                  TheBigBangTheoryCastList()));
                     },
                     child: Container(
                         height: 225,
