@@ -13,7 +13,7 @@ class _PokemonListState extends State<PokemonList> {
       "https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json";
   Pokedex pokedex;
 
-   Future<Pokedex> getPokemon() async {
+  Future<Pokedex> getPokemon() async {
     final response = await http.get(url);
     final decodedJson = json.decode(response.body);
     pokedex = Pokedex.fromJson(decodedJson);
@@ -38,9 +38,11 @@ class _PokemonListState extends State<PokemonList> {
               crossAxisCount: 1,
               children: cominPokedex.data.pokemon.map((poke) {
                 return Container(
+                  color: Colors.amberAccent,
                   child: Card(
                     elevation: 6,
                     margin: EdgeInsets.all(12),
+                    color: Colors.teal,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
