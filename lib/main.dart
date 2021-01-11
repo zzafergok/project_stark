@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       title: 'Project Stark',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.lime,
+        primarySwatch: Colors.orange,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MainPage(),
@@ -41,7 +41,6 @@ class MainPage extends StatelessWidget {
           child: Column(
             children: [
               Card(
-                // color: Colors.purple,
                 child: InkWell(
                   onTap: () {
                     Navigator.push(context,
@@ -76,7 +75,6 @@ class MainPage extends StatelessWidget {
                 margin: EdgeInsets.all(16),
               ),
               Card(
-                //color: Colors.lightBlue,
                 child: InkWell(
                   onTap: () {
                     Navigator.push(
@@ -114,7 +112,6 @@ class MainPage extends StatelessWidget {
                 margin: EdgeInsets.all(16),
               ),
               Card(
-                //color: Colors.lightBlue,
                 child: InkWell(
                   onTap: () {
                     Navigator.push(
@@ -152,7 +149,6 @@ class MainPage extends StatelessWidget {
                 margin: EdgeInsets.all(16),
               ),
               Card(
-                //color: Colors.lightBlue,
                 child: InkWell(
                   onTap: () {
                     Navigator.push(
@@ -161,7 +157,6 @@ class MainPage extends StatelessWidget {
                             builder: (context) => GameOfThronesCastList()));
                   },
                   child: Container(
-                      //color: Colors.grey,
                       height: 225,
                       width: 316,
                       margin: EdgeInsets.only(top: 35),
@@ -191,7 +186,6 @@ class MainPage extends StatelessWidget {
                 margin: EdgeInsets.all(16),
               ),
               Card(
-                //color: Colors.lightBlue,
                 child: InkWell(
                   onTap: () {
                     Navigator.push(
@@ -232,7 +226,6 @@ class MainPage extends StatelessWidget {
                 margin: EdgeInsets.all(16),
               ),
               Card(
-                //color: Colors.lightBlue,
                 child: InkWell(
                   onTap: () {
                     Navigator.push(
@@ -273,7 +266,6 @@ class MainPage extends StatelessWidget {
                 margin: EdgeInsets.all(16),
               ),
               Card(
-                //color: Colors.lightBlue,
                 child: InkWell(
                   onTap: () {
                     Navigator.push(
@@ -311,7 +303,6 @@ class MainPage extends StatelessWidget {
                 margin: EdgeInsets.all(16),
               ),
               Card(
-                //color: Colors.lightBlue,
                 child: InkWell(
                   onTap: () {
                     Navigator.push(
