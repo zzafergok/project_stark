@@ -8,9 +8,9 @@ class ModernFamilyCastList extends StatefulWidget {
 }
 
 class _ModernFamilyCastListState extends State<ModernFamilyCastList> {
-  //
   List<ModernFamilyCast> _modernFamilyCast;
   bool _loading;
+  Color bg = const Color(0xFF7DAA92);
 
   @override
   void initState() {
@@ -33,89 +33,77 @@ class _ModernFamilyCastListState extends State<ModernFamilyCastList> {
       body: Container(
         child: ListView.builder(
           itemCount: null == _modernFamilyCast ? 0 : _modernFamilyCast.length,
-          itemExtent: 300,
           itemBuilder: (context, index) {
             ModernFamilyCast modernFamilyCast = _modernFamilyCast[index];
-            return Container(
-              color: Colors.blueGrey,
-              child: Card(
-                elevation: 6,
-                margin: EdgeInsets.all(12),
-                color: Colors.amber,
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      child: Container(
-                        margin: EdgeInsets.only(right: 8, top: 50, bottom: 50),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Container(
-                              height: 20,
-                              width: 150,
-                              child: Center(
-                                  child: Text(modernFamilyCast.character.name)),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(16),
-                                  color: Colors.orangeAccent),
-                            ),
-                            Container(
-                              height: 20,
-                              width: 150,
-                              child: Center(
-                                  child: Text(modernFamilyCast.person.name)),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(16),
-                                  color: Colors.tealAccent),
-                            ),
-                            Container(
-                              height: 20,
-                              width: 150,
-                              child: Center(
-                                  child: Text(modernFamilyCast
-                                      .person.country.name
-                                      .toString())),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(16),
-                                  color: Colors.tealAccent),
-                            ),
-                            Container(
-                              padding: EdgeInsets.only(left: 35, top: 1.5),
-                              height: 20,
-                              width: 150,
-                              child: Center(
-                                  child: Text(
-                                modernFamilyCast.person.birthday.toString(),
-                              )),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(16),
-                                  color: Colors.tealAccent),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: Container(
-                        margin: EdgeInsets.only(right: 8),
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: NetworkImage(
-                                modernFamilyCast.character.image.original),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16)),
+            return ExpansionTile(
+              backgroundColor: bg,
+              title: Text(
+                modernFamilyCast.character.name,
+                style: TextStyle(color: Colors.black),
               ),
+              children: [
+                Container(
+                  height: 250,
+                  padding: EdgeInsets.all(175),
+                  margin: EdgeInsets.only(bottom: 15),
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: NetworkImage(
+                          modernFamilyCast.character.image.original),
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 50,
+                  child: Card(
+                    elevation: 3,
+                    color: Colors.amber,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Gercek Adi : "),
+                        Text(modernFamilyCast.person.name),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 50,
+                  child: Card(
+                    elevation: 3,
+                    color: Colors.amber,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Dogum Gunu : "),
+                        Text(modernFamilyCast.person.birthday.toString()),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 50,
+                  child: Card(
+                    elevation: 3,
+                    color: Colors.amber,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Ulkesi: "),
+                        Text(modernFamilyCast.person.country.code +
+                            " / " +
+                            modernFamilyCast.person.country.name),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 15,
+                  color: Colors.black54,
+                )
+              ],
             );
           },
-          //itemCount: _brooklynNineNineCast.length,
         ),
       ),
     );

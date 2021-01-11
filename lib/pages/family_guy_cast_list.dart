@@ -10,6 +10,7 @@ class FamilyGuyCastList extends StatefulWidget {
 class _FamilyGuyCastListState extends State<FamilyGuyCastList> {
   List<FamilyGuyCast> _familyGuyCast;
   bool _loading;
+  Color bg = const Color(0xFF7DAA92);
 
   @override
   void initState() {
@@ -32,59 +33,73 @@ class _FamilyGuyCastListState extends State<FamilyGuyCastList> {
       body: Container(
         height: double.infinity,
         child: ListView.builder(
-            itemCount: null == _familyGuyCast ? 0 : _familyGuyCast.length,
-            itemExtent: 300,
-            itemBuilder: (context, index) {
-              FamilyGuyCast familyGuyCast = _familyGuyCast[index];
-              return Container(
-                color: Colors.blueGrey,
-                child: Card(
-                  elevation: 6,
-                  margin: EdgeInsets.all(12),
-                  color: Colors.amber,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Expanded(
-                        child: Container(
-                          margin:
-                              EdgeInsets.only(right: 8, top: 50, bottom: 50),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Container(
-                                height: 20,
-                                width: 150,
-                                child: Center(
-                                  child: Text(familyGuyCast.character.name),
-                                ),
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(16),
-                                    color: Colors.orangeAccent),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        child: Container(
-                          margin: EdgeInsets.only(right: 8),
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: NetworkImage(
-                                  familyGuyCast.character.image.medium),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
+          itemCount: null == _familyGuyCast ? 0 : _familyGuyCast.length,
+          itemBuilder: (context, index) {
+            FamilyGuyCast familyGuyCast = _familyGuyCast[index];
+            return ExpansionTile(
+              title: Text(
+                familyGuyCast.character.name,
+                style: TextStyle(color: Colors.black),
+              ),
+              backgroundColor: bg,
+              children: [
+                Container(
+                  height: 300,
+                  padding: EdgeInsets.all(175),
+                  margin: EdgeInsets.only(bottom: 15),
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: NetworkImage(familyGuyCast.character.image.medium),
+                    ),
                   ),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16)),
                 ),
-              );
-            }),
+                Container(
+                  height: 50,
+                  child: Card(
+                    elevation: 3,
+                    color: Colors.amber,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Seslendiren : "),
+                        Text(familyGuyCast.person.name),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 50,
+                  child: Card(
+                    elevation: 3,
+                    color: Colors.amber,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Dogum Gunu : "),
+                        Text(familyGuyCast.person.birthday.toString()),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 50,
+                  child: Card(
+                    elevation: 3,
+                    color: Colors.amber,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Cinsiyeti : "),
+                        Text(familyGuyCast.person.gender),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(height: 15, color: Colors.black54)
+              ],
+            );
+          },
+        ),
       ),
     );
   }

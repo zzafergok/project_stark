@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_stark/services/brooklyn_nine_nine_services.dart';
 import 'package:project_stark/model/brooklyn_nine_nine_cast.dart';
-import 'package:flip_card/flip_card.dart';
 
 class BrooklynNineNineCastList extends StatefulWidget {
   BrooklynNineNineCastList() : super();
@@ -12,9 +11,9 @@ class BrooklynNineNineCastList extends StatefulWidget {
 }
 
 class _BrooklynNineNineCastListState extends State<BrooklynNineNineCastList> {
-  //
   List<BrooklynNineNineCast> _brooklynNineNineCast;
   bool _loading;
+  Color bg = const Color(0xFF7DAA92);
 
   @override
   void initState() {
@@ -39,41 +38,74 @@ class _BrooklynNineNineCastListState extends State<BrooklynNineNineCastList> {
         child: ListView.builder(
           itemCount:
               null == _brooklynNineNineCast ? 0 : _brooklynNineNineCast.length,
-          itemExtent: 390,
           itemBuilder: (context, index) {
             BrooklynNineNineCast brooklynNineNineCast =
                 _brooklynNineNineCast[index];
-            return Container(
-              color: Colors.blueGrey,
-              child: Card(
-                margin: EdgeInsets.all(20),
-                color: Colors.amber,
-                child: FlipCard(
-                  direction: FlipDirection.HORIZONTAL,
-                  speed: 500,
-                  flipOnTouch: true,
-                  front: Container(
-                    margin: EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: NetworkImage(
-                            brooklynNineNineCast.character.image.original),
-                      ),
-                    ),
-                  ),
-                  back: Container(
-                    margin: EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: NetworkImage(
-                            brooklynNineNineCast.character.image.original),
-                      ),
+            return ExpansionTile(
+              backgroundColor: bg,
+              title: Text(
+                brooklynNineNineCast.character.name,
+                style: TextStyle(color: Colors.black),
+              ),
+              children: [
+                Container(
+                  height: 250,
+                  padding: EdgeInsets.all(175),
+                  margin: EdgeInsets.only(bottom: 15),
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: NetworkImage(
+                          brooklynNineNineCast.character.image.original),
                     ),
                   ),
                 ),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(24)),
-              ),
+                Container(
+                  height: 50,
+                  child: Card(
+                    elevation: 3,
+                    color: Colors.amber,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Gercek Adi : "),
+                        Text(brooklynNineNineCast.person.name),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 50,
+                  child: Card(
+                    elevation: 3,
+                    color: Colors.amber,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Dogum Gunu : "),
+                        Text(brooklynNineNineCast.person.birthday.toString()),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 50,
+                  child: Card(
+                    elevation: 3,
+                    color: Colors.amber,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Ulkesi: "),
+                        Text(brooklynNineNineCast.person.country.name),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 15,
+                  color: Colors.black54,
+                )
+              ],
             );
           },
         ),

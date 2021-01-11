@@ -8,9 +8,9 @@ class TheSimpsonsCastList extends StatefulWidget {
 }
 
 class _TheSimpsonsCastListState extends State<TheSimpsonsCastList> {
-  //
   List<TheSimpsonsCast> _theSimpsonsCast;
   bool _loading;
+  Color bg = const Color(0xFF7DAA92);
 
   @override
   void initState() {
@@ -33,89 +33,75 @@ class _TheSimpsonsCastListState extends State<TheSimpsonsCastList> {
       body: Container(
         child: ListView.builder(
           itemCount: null == _theSimpsonsCast ? 0 : _theSimpsonsCast.length,
-          itemExtent: 300,
           itemBuilder: (context, index) {
             TheSimpsonsCast theSimpsonsCast = _theSimpsonsCast[index];
-            return Container(
-              color: Colors.blueGrey,
-              child: Card(
-                elevation: 6,
-                margin: EdgeInsets.all(12),
-                color: Colors.amber,
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      child: Container(
-                        margin: EdgeInsets.only(right: 8, top: 50, bottom: 50),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Container(
-                              height: 20,
-                              width: 150,
-                              child: Center(
-                                  child: Text(theSimpsonsCast.character.name)),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(16),
-                                  color: Colors.orangeAccent),
-                            ),
-                            Container(
-                              height: 20,
-                              width: 150,
-                              child: Center(
-                                  child: Text(theSimpsonsCast.person.name)),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(16),
-                                  color: Colors.tealAccent),
-                            ),
-                            Container(
-                              height: 20,
-                              width: 150,
-                              child: Center(
-                                  child: Text(theSimpsonsCast
-                                      .person.country.name
-                                      .toString())),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(16),
-                                  color: Colors.tealAccent),
-                            ),
-                            Container(
-                              padding: EdgeInsets.only(left: 35, top: 1.5),
-                              height: 20,
-                              width: 150,
-                              child: Center(
-                                  child: Text(
-                                theSimpsonsCast.person.birthday.toString(),
-                              )),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(16),
-                                  color: Colors.tealAccent),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: Container(
-                        margin: EdgeInsets.only(right: 8),
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: NetworkImage(
-                                theSimpsonsCast.character.image.original),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16)),
+            return ExpansionTile(
+              backgroundColor: bg,
+              title: Text(
+                theSimpsonsCast.character.name,
+                style: TextStyle(color: Colors.black),
               ),
+              children: [
+                Container(
+                  height: 250,
+                  padding: EdgeInsets.all(175),
+                  margin: EdgeInsets.only(bottom: 15),
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: NetworkImage(
+                          theSimpsonsCast.character.image.original),
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 50,
+                  child: Card(
+                    elevation: 3,
+                    color: Colors.amber,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Seslendiren : "),
+                        Text(theSimpsonsCast.person.name),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 50,
+                  child: Card(
+                    elevation: 3,
+                    color: Colors.amber,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Dogum Gunu : "),
+                        Text(theSimpsonsCast.person.birthday.toString()),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 50,
+                  child: Card(
+                    elevation: 3,
+                    color: Colors.amber,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Cinsiyeti : "),
+                        Text(theSimpsonsCast.person.gender),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 15,
+                  color: Colors.black54,
+                )
+              ],
             );
           },
-          //itemCount: _brooklynNineNineCast.length,
         ),
       ),
     );
